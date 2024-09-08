@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form based ID card JS</title>
+    <style>
+        body{
+            width:500px;
+            margin: 100px auto;
+        }
+        fieldset{
+            width: 40vw;
+        }
+    </style>
+</head>
+<body>
+    <div><fieldset>
+        <legend>ID CARD DETAILS</legend>
+        <form action="" id="form1" >  
+            <input id="fname" type="text" placeholder="First name" required/>
+            <input id="sname" type="text"placeholder="last name"required/> <br><br>
+            <input id="rollno" type="text" placeholder="roll no"required/>
+            <input id="batch" type="text" placeholder="Batch No"required/><br><br>
+            <input id="degree" type="text" placeholder="degree and YOP " required/>
+            <input id="course" type="text" placeholder="course" required/> <br><br>
+            <input id="mobileno" type="number" placeholder="mobile No"required/>
+            <input id="duration" type="number" placeholder="Duration in months"required/> <br><br>
+            <input id="image" type="file" required >
+            <input id="reset" type="reset" value="Reset">
+            <input id="submit" type="submit" >  
+        </form>
+    </fieldset>
+        <!-- <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p> -->
+
+    </div>
+
+    <script>
+
+        
+
+        let form=document.getElementById("form1");
+       form.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        let ip1=document.getElementById("fname");
+        let ip2=document.getElementById("sname");
+        let result= ip1.value.toUpperCase()+ip2.value.toUpperCase();
+        let rollno1=document.getElementById("rollno").value.toUpperCase();
+        let batch1=document.getElementById("batch").value.toUpperCase();
+        let degree=document.getElementById("degree").value.toUpperCase();
+        let course1=document.getElementById("course").value.toUpperCase();
+        let mobileno=document.getElementById("mobileno").value;
+        let duration1 = document.getElementById("duration").value;
+        let img1=document.getElementById("image")       
+    
+        
+       let container= document.createElement("div")
+       container.innerHTML="myDiv"
+
+
+       let myDiv=document.createElement("div");
+        myDiv.style.height="280px";
+        myDiv.style.width="450px";
+        myDiv.style.borderRadius="10px";
+        myDiv.style.border="2px solid red";
+        myDiv.style.backgroundImage="url('https://files.123freevectors.com/wp-content/original/142564-abstract-blue-wave-business-background.jpg')";
+        myDiv.style.backgroundSize="cover";
+        document.body.appendChild(myDiv);
+
+        let div1=document.createElement("div");
+        // div1.style.border="2px solid green";
+        myDiv.appendChild(div1)
+
+
+        let title=document.createElement("h1");
+        title.innerHTML="10000 C{}DER'S";
+        title.style.textAlign="center";
+        title.style.fontSize="40px";
+        title.style.marginTop="10px";
+        title.style.color="red";
+        div1.appendChild(title);
+
+        arr=document.createElement("p");
+        arr.innerHTML="<span>Write</span> Path for Bright <span>Future</span>";
+        arr.style.color="yellow";
+        arr.style.textAlign="right";
+        arr.style.paddingRight="40px";
+        arr.style.marginTop="-30px";
+        div1.appendChild(arr);
+
+        let splitdiv=document.createElement("div");
+        // splitdiv.style.border="2px solid pink";
+        splitdiv.style.display="grid";
+        splitdiv.style.gridTemplateRows="auto auto";
+        splitdiv.style.gridTemplateColumns="auto auto";
+        splitdiv.style.gap="40px"
+        myDiv.appendChild(splitdiv);
+
+
+        let img=document.createElement("img");
+        img.src=URL.createObjectURL(img1.files[0]);
+        img.style.borderRadius="50%";
+        img.style.border="1px solid";
+        img.style.height="140px";
+        img.style.width="140px";
+        img.style.marginTop="20px";
+        img.style.marginLeft="15px";
+        img.style.boxShadow="0 0 50px yellow";
+        splitdiv.appendChild(img);
+
+
+
+
+        let sections=document.createElement("div");
+        // sections.style.border="2px solid red ";
+        sections.style.backgroundColor="white";
+        sections.style.borderRadius="20px 0 20px 0";
+        sections.style.marginTop="10px";
+        sections.style.paddingTop="10px"
+        sections.style.width="90%";
+        sections.style.height="90%";
+        sections.style.fontSize="16px";
+        sections.style.color="black";
+        splitdiv.appendChild(sections);
+
+       
+
+        let sec=document.createElement("div");
+        sec.innerText=`Name : ${result}`;
+        sec.style.padding="2px";
+        sec.style.marginLeft="10px"
+        sections.appendChild(sec);
+
+
+        roll=document.createElement("div");
+        roll.innerHTML=` Roll no : ${rollno1}`;
+        roll.style.padding="2px";
+        roll.style.marginLeft="10px"
+        sections.appendChild(roll)
+
+
+
+        let batch = document.createElement("div");
+        batch.innerHTML=`Batch : ${batch1}`
+        batch.style.padding="2px"
+        batch.style.marginLeft="10px"
+        sections.appendChild(batch);
+
+        back= document.createElement("div");
+        back.innerHTML=`Graduation: ${degree}`;
+        back.style.padding="2px ";
+        back.style.marginLeft="10px"
+        sections.appendChild(back);
+
+        
+
+
+        course = document.createElement("div");
+        course.innerHTML=`Course : ${course1}`;
+        course.style.padding="2px";
+        course.style.marginLeft="10px"
+        sections.appendChild(course);
+
+
+    //     // date = document.createElement("div");
+    //     // date.innerHTML=" DATE OF JOIN: 10-06-2024";
+    //     // date.style.padding="2px";
+    //     // sections.appendChild(date);
+
+
+        contact = document.createElement("div");
+        contact.innerHTML=`Mobile No : ${mobileno}`;
+        contact.style.padding="2px";
+        contact.style.marginLeft="10px"
+        sections.appendChild(contact);
+
+
+        duration = document.createElement("div");
+        duration.innerHTML=`Duration : ${duration1} months`;
+        duration.style.padding="2px";
+        duration.style.marginLeft="10px";
+        sections.appendChild(duration);
+    })
+    </script>
+</body>
+</html>
